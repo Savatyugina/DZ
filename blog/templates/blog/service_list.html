@@ -1,19 +1,32 @@
+{% load static %}
 <html>
     <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+        <link rel="stylesheet" href="{%  static 'css/blog.css' %}">
         <title>RIP homework</title>
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Homework</a></h1>
         </div>
 
-        {%  for service in services %}
-            <div>
-            <p>published: {{ service.published_date }}</p>
-                <h1><a href="">{{ service.title }}</a></h1>
-            <p>{{ service.text|linebreaksbr }}</p>
-            </div>
-        {% endfor %}
+        <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for service in services %}
+                <div class="service">
+                    <div class="date">
+                        <p>Опубликовано: {{ service.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ service.title }}</a></h1>
+                    <p>{{ service.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 
     </body>
