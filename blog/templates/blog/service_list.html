@@ -7,16 +7,14 @@
             <h1><a href="/">Homework</a></h1>
         </div>
 
-        <div>
-            <p>опубликовано 09.01.2018</p>
-            <h2><a href="">Услуга 1</a></h2>
-            <p>Описание услуги 1</p>
-        </div>
+        {%  for service in services %}
+            <div>
+            <p>published: {{ service.published_date }}</p>
+                <h1><a href="">{{ service.title }}</a></h1>
+            <p>{{ service.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
 
-        <div>
-            <p>опубликовано 09.01.2018</p>
-            <h2><a href="">Услуга 2</a></h2>
-            <p>Описание услуги 2</p>
-        </div>
+
     </body>
 </html>
