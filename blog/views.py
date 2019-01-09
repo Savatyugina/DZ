@@ -25,9 +25,9 @@ def service_new(request):
             service.published_date = timezone.now()
             service.save()
             return redirect('service_detail', pk=service.pk)
-        else:
+    else:
             form = ServiceForm()
-        return render(request, 'blog/service_edit.html', {'form': form})
+    return render(request, 'blog/service_edit.html', {'form': form})
 
 
 def service_edit(request, pk):
