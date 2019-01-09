@@ -7,6 +7,9 @@
                 {{ service.published_date }}
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
+             <a class="btn btn-default" href="{% url 'service_edit' pk=service.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h1>{{ service.title }}</h1>
         <p>{{ service.text|linebreaksbr }}</p>
         <p>{{ service.price|linebreaksbr }}</p>
