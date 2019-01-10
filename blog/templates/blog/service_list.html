@@ -6,7 +6,6 @@
                         <p>Опубликовано: {{ service.published_date }}</p>
                     </div>
                     <h1><a href="{%  url 'service_detail' pk=service.pk %}">{{ service.title }}</a></h1>
-                    <p>{{ service.text|linebreaksbr }}</p>
                 </div>
             {% endfor %}
     {% endblock %}

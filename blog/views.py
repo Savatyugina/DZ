@@ -3,6 +3,7 @@ from .models import Service
 from django.utils import timezone
 from django.contrib.auth.models import User
 from .forms import ServiceForm
+#from django.contrib.auth.decorators import login_required
 
 
 def service_list(request):
@@ -27,13 +28,13 @@ def service_new(request):
             return redirect('service_detail', pk=service.pk)
     else:
             form = ServiceForm()
-    return render(request, 'blog/service_edit.html', {'form': form})
+            return render(request, 'blog/service_edit.html', {'form': form})
 
 
 def service_edit(request, pk):
     service = get_object_or_404(Service, pk=pk)
-    if request.method == "POST":
-        form = ServiceForm(request.POST, instance=service)
+    if request.method == "SERVICE":
+        form = ServiceForm(request.SERVICE, instance=service)
         if form.is_valid():
             service = form.save(commit=False)
             service.author = request.user
